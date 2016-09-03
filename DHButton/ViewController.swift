@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-
-
 class ViewController: UIViewController {
 
 	override func viewDidLoad() {
@@ -22,16 +19,15 @@ class ViewController: UIViewController {
 		self.view.addSubview(b)
 		
 		// usage
-		b.callback { [unowned self] in
+		callback(for: b) { [unowned self] in
 			let vc = self.storyboard!.instantiateViewController(withIdentifier: "ViewController2ViewController")
 			self.show(vc, sender: $0)
 		}
 		
 		let s = UISlider(frame: CGRect(x: 0, y: 130, width: 100, height:  100))
 		self.view.addSubview(s)
-		s.callback(for: [.valueChanged]) { (ss: UISlider) -> () in
-			print(ss.value)
-			//print(ss.value)
+		callback(for: s, with: [.valueChanged]) {
+			print($0.value)
 		}
 		// Do any additional setup after loading the view, typically from a nib.
 	}

@@ -9,11 +9,11 @@
 import UIKit
 
 // a proxy class
-internal class DHTargetActionProxy<T: UIControl>: UIView {
+internal class DHTargetActionProxy: UIView {
 	// a block that will be called
-	internal var _action: (T) -> ()
+	internal var _action: (AnyObject) -> ()
 	
-	internal init(controlEvents: UIControlEvents, action: (T) -> ()) {
+	internal init(controlEvents: UIControlEvents, action: (AnyObject) -> ()) {
 		_action = action
 		super.init(frame: CGRect.zero)
 		self.tag = Int(controlEvents.rawValue)
@@ -24,20 +24,24 @@ internal class DHTargetActionProxy<T: UIControl>: UIView {
 	}
 	
 	internal func action(_ sender: AnyObject) {
-		_action(sender as! T)
+		_action(sender)
 	}
+}
+
+public func callback<T: UIControl>(for obj: T, with controlEvents: UIControlEvents = [UIControlEvents.touchUpInside], with action: (T) -> ()) {
+	obj.callback(for: controlEvents, with: action)
 }
 
 extension UIControl {
 	
-	@objc(callbackForControlEvents:withAction:)
-	public func callback(`for` controlEvents: UIControlEvents, action: (AnyObject) -> ())
+	@objc
+	public func callbackForControlEvents(_ controlEvents: UIControlEvents, withAction action: (AnyObject) -> ())
 	{
-		callback(for: controlEvents, action: action)
+		callback(for: controlEvents, with: action)
 	}
 	
-	public func callback<T: UIControl>(`for` controlEvents: UIControlEvents = [UIControlEvents.touchUpInside],
-	                     action: (T) -> ())
+	fileprivate func callback<T:UIControl>(`for` controlEvents: UIControlEvents = [UIControlEvents.touchUpInside],
+	                    with action: (T) -> ())
 	{
 		// An array of supported touch events
 		let ctrlEvts: [UIControlEvents] =
@@ -62,13 +66,15 @@ extension UIControl {
 		ctrlEvts.forEach {
 			if controlEvents.contains($0) {
 				// each touch event requires its own proxy object
-				_addActionToView(tag: $0.rawValue, action: action)
+				_addActionToView(tag: $0.rawValue, action: { (ao: AnyObject) -> () in
+					action(ao as! T)
+				})
 			}
 		}
 	}
 	
-	private func _addActionToView<T: UIControl>(tag: UInt, action: (T) -> ()) {
-		let foo = DHTargetActionProxy<T>(controlEvents: UIControlEvents(rawValue: tag), action: action)
+	private func _addActionToView(tag: UInt, action: (AnyObject) -> ()) {
+		let foo = DHTargetActionProxy(controlEvents: UIControlEvents(rawValue: tag), action: action)
 		
 		// remove previous if it exists
 		viewWithTag(Int(tag))?.removeFromSuperview()
