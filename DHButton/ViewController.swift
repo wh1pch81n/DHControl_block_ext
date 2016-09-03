@@ -19,16 +19,19 @@ class ViewController: UIViewController {
 		self.view.addSubview(b)
 		
 		// usage
-		callback(for: b) { [unowned self] in
+
+		b.callback { [unowned self] in
 			let vc = self.storyboard!.instantiateViewController(withIdentifier: "ViewController2ViewController")
 			self.show(vc, sender: $0)
 		}
 		
 		let s = UISlider(frame: CGRect(x: 0, y: 130, width: 100, height:  100))
 		self.view.addSubview(s)
-		callback(for: s, with: [.valueChanged]) {
+		s.callback(when: [.valueChanged]) {
 			print($0.value)
 		}
+		
+		
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 

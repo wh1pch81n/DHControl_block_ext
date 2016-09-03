@@ -28,20 +28,24 @@ internal class DHTargetActionProxy: UIView {
 	}
 }
 
-public func callback<T: UIControl>(for obj: T, with controlEvents: UIControlEvents = [UIControlEvents.touchUpInside], with action: (T) -> ()) {
-	obj.callback(for: controlEvents, with: action)
-}
-
 extension UIControl {
 	
 	@objc
 	public func callbackForControlEvents(_ controlEvents: UIControlEvents, withAction action: (AnyObject) -> ())
 	{
-		callback(for: controlEvents, with: action)
+		callback(when: controlEvents, with: action)
 	}
 	
-	fileprivate func callback<T:UIControl>(`for` controlEvents: UIControlEvents = [UIControlEvents.touchUpInside],
-	                    with action: (T) -> ())
+}
+
+extension UIControl: CallBackTargetAction {}
+
+public protocol CallBackTargetAction {}
+
+extension CallBackTargetAction where Self: UIControl {
+	
+	public func callback(when controlEvents: UIControlEvents = [UIControlEvents.touchUpInside],
+	                          with action: (Self) -> ())
 	{
 		// An array of supported touch events
 		let ctrlEvts: [UIControlEvents] =
@@ -67,7 +71,7 @@ extension UIControl {
 			if controlEvents.contains($0) {
 				// each touch event requires its own proxy object
 				_addActionToView(tag: $0.rawValue, action: { (ao: AnyObject) -> () in
-					action(ao as! T)
+					action(ao as! Self)
 				})
 			}
 		}
