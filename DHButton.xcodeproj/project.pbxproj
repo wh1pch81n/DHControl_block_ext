@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0FD00A1D7A95D60056CA85 /* UIControl_CallBack_extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0FD0091D7A95D60056CA85 /* UIControl_CallBack_extentions.swift */; };
 		2F2DDFE51D7A770100183C7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2DDFE41D7A770100183C7E /* AppDelegate.swift */; };
 		2F2DDFE71D7A770100183C7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2DDFE61D7A770100183C7E /* ViewController.swift */; };
 		2F2DDFEA1D7A770100183C7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2DDFE81D7A770100183C7E /* Main.storyboard */; };
 		2F2DDFEC1D7A770100183C7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F2DDFEB1D7A770100183C7E /* Assets.xcassets */; };
 		2F2DDFEF1D7A770100183C7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F2DDFED1D7A770100183C7E /* LaunchScreen.storyboard */; };
+		2FADB5A71D7A908D00374C03 /* ViewController2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FADB5A61D7A908D00374C03 /* ViewController2ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F0FD0091D7A95D60056CA85 /* UIControl_CallBack_extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControl_CallBack_extentions.swift; sourceTree = "<group>"; };
 		2F2DDFE11D7A770100183C7E /* DHButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DHButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F2DDFE41D7A770100183C7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F2DDFE61D7A770100183C7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		2F2DDFEB1D7A770100183C7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F2DDFEE1D7A770100183C7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F2DDFF01D7A770100183C7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FADB5A41D7A908D00374C03 /* DHButton-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DHButton-Bridging-Header.h"; sourceTree = "<group>"; };
+		2FADB5A51D7A908D00374C03 /* ViewController2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2ViewController.h; sourceTree = "<group>"; };
+		2FADB5A61D7A908D00374C03 /* ViewController2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +62,14 @@
 			children = (
 				2F2DDFE41D7A770100183C7E /* AppDelegate.swift */,
 				2F2DDFE61D7A770100183C7E /* ViewController.swift */,
+				2F0FD0091D7A95D60056CA85 /* UIControl_CallBack_extentions.swift */,
+				2FADB5A51D7A908D00374C03 /* ViewController2ViewController.h */,
+				2FADB5A61D7A908D00374C03 /* ViewController2ViewController.m */,
 				2F2DDFE81D7A770100183C7E /* Main.storyboard */,
 				2F2DDFEB1D7A770100183C7E /* Assets.xcassets */,
 				2F2DDFED1D7A770100183C7E /* LaunchScreen.storyboard */,
 				2F2DDFF01D7A770100183C7E /* Info.plist */,
+				2FADB5A41D7A908D00374C03 /* DHButton-Bridging-Header.h */,
 			);
 			path = DHButton;
 			sourceTree = "<group>";
@@ -91,11 +101,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Derrick  Ho";
 				TargetAttributes = {
 					2F2DDFE01D7A770100183C7E = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = SX585CK9M9;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -136,6 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F2DDFE71D7A770100183C7E /* ViewController.swift in Sources */,
+				2F0FD00A1D7A95D60056CA85 /* UIControl_CallBack_extentions.swift in Sources */,
+				2FADB5A71D7A908D00374C03 /* ViewController2ViewController.m in Sources */,
 				2F2DDFE51D7A770100183C7E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,8 +190,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -221,8 +237,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -249,10 +267,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = SX585CK9M9;
 				INFOPLIST_FILE = DHButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dnthome.DHButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DHButton/DHButton-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -260,10 +283,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = SX585CK9M9;
 				INFOPLIST_FILE = DHButton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dnthome.DHButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DHButton/DHButton-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -286,6 +314,7 @@
 				2F2DDFF51D7A770100183C7E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
