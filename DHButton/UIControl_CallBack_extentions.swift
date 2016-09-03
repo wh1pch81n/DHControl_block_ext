@@ -30,6 +30,12 @@ internal class DHTargetActionProxy: UIView {
 
 extension UIControl {
 	
+	/** 
+	A helper method that allows a UIControl subclass to perform a block when a controlEvent is recieved
+	Use this method for your UIControl subclass if you are using objective-c
+	- parameter controlEvents: The control events that you want to trigger the closure
+	- parameter action: a closure that will be executed when it recieves the given control events.
+	*/
 	@objc
 	public func callbackForControlEvents(_ controlEvents: UIControlEvents, withAction action: (AnyObject) -> ())
 	{
@@ -44,6 +50,11 @@ public protocol CallBackTargetAction {}
 
 extension CallBackTargetAction where Self: UIControl {
 	
+	/** 
+	A helper method that allows a UIControl subclass to perform a block when a controlEvent is recieved 
+	- parameter controlEvents: The control events that you want to trigger the closure
+	- parameter action: a closure that will be executed when it recieves the given control events.
+	*/
 	public func callback(when controlEvents: UIControlEvents = [UIControlEvents.touchUpInside],
 	                          with action: (Self) -> ())
 	{
